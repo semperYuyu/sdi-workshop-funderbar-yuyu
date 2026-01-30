@@ -266,7 +266,7 @@ _.falsyOrTruthy = function(a){
       //   zord: c,
       // }
       // or
-           let obj = {}
+      let obj = {}
       obj['firstName'] = a
       obj['lastName'] = b
       obj['zord'] = c
@@ -291,7 +291,7 @@ _.falsyOrTruthy = function(a){
 
     _.objectValue = (a,b) => {
       //Code Goes Below
-
+      return a[b];
     }
 
 
@@ -303,7 +303,14 @@ _.falsyOrTruthy = function(a){
     //Loop through the given array and return the total sum of all the numbers in the array.
     _.forOf = (a) => {
       //Code Goes Below
+      let sum = 0;
+      for (let i of a) {
+        if (typeof i == 'number') {
+          sum += i
+        }
+      }
 
+      return sum;
     }
 
     //Loop through the given object and return an array of keys from the object.
@@ -311,6 +318,12 @@ _.falsyOrTruthy = function(a){
     //example array.push(value)
     _.forInKeys = (a) =>{
       //Code Goes Below
+      let table = []
+      for (let i in a) {
+        table.push(i)
+      }
+
+      return table;
 
     }
 
@@ -318,6 +331,14 @@ _.falsyOrTruthy = function(a){
     //This is similar to the above function but needs a little digging to get the value.
     _.forInValues = (a) =>{
       //Code Goes Below
+      let table = []
 
+      for (let i in a) {
+        table.push(a[i])
+      }
+
+      return table;
     }
+
+
 }());
