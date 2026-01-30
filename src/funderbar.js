@@ -102,25 +102,26 @@ _.mathOrder = function(test){
 //_.same takes two parameters and returns whether they are the equal or not
 _.same = function(a,b){
   //Code Goes Below
-
+  return a === b;
 }
 
 //_.greater takes two numbers as parameters and checks if a is greater than b
 _.greater = function(a,b){
   //Code Goes Below
-
+  return a > b
 }
 
 //_.lessThan takes two numbers as parameters and checks if a is less than b
 _.lessThan = function(a,b){
   //Code Goes Below
+  return a < b;
 
 }
 
 //_.falsyOrTruthy takes a parameter and determines whether it is TRUTHY or FALSY
 _.falsyOrTruthy = function(a){
    //Code Goes Below
-
+  return a == true;
 }
 
   //In the next tests you will be given four parameters to compare, sort of.
@@ -135,26 +136,32 @@ _.falsyOrTruthy = function(a){
   //_.andAnd will be using the && comparator
   _.andAnd = function(a,b,c,d) {
   //Code Goes Below
-
+      return (a === b) && (c === d)
   }
 
     //_.orOr will be using the || comparator
     _.orOr = function(a,b,c,d) {
       //Code Goes Below
-
+      return (a === b) || (c === d);
       }
 
   //Control Flow
   //Create a basic if statement to pass the tests.
   _.ifLogic = function(a, b){
     //Code Goes Below
-
+    if (a === b) {
+      return 'Great'
+    }
   }
 
     //Create a basic if else statement to pass the tests.
     _.ifElseLogic = function(a, b){
       //Code Goes Below
-
+      if (a === b) {
+        return 'Great'
+      } else {
+        return 'Good'
+      }
     }
 
     //Using a for loop, iterate through the array passed.
@@ -162,12 +169,29 @@ _.falsyOrTruthy = function(a){
     _.forLoop = function(a){
       //Code Goes Below
 
+      //return a.join("")
+      // or
+      let concat = ''
+      for (let i of a) {
+
+          concat += i
+      }
+
+      return concat
     }
 
     //Using NESTED for loops, iterate through an array or arrays
     _.nestedForLoop = function(a){
       //Code Goes Below
+      let sum = 0
 
+      for (let i of a) {
+        for (let j of i) {
+          sum += j
+        }
+      }
+
+      return sum
     }
 
     //While looping through the array passed determine the data type of the element. If the element is a number add it to a variable. At the end return that variable.
@@ -175,6 +199,16 @@ _.falsyOrTruthy = function(a){
     _.forIfElseNum = function(a){
       //Code Goes Below
 
+      let count = 0
+      for (let i of a) {
+        if (typeof(i) != "number") {
+          count++;
+        } else {
+          count += i;
+        }
+      }
+
+      return count;
     }
 
     //This function is similar to the above function. Only this time you will be building a sentence rather than a total number. Loop through the array and concatenate the strings in it to make a sentence.
@@ -182,15 +216,37 @@ _.falsyOrTruthy = function(a){
     _.forIfElseStr = function(a){
       //Code Goes Below
 
+      let str = ''
+
+      for (let i of a) {
+        if (typeof(i) == "string") {
+          str += i
+        }
+        // i could add an empty string, but that won't change much...
+      }
+
+      return str;
     }
 
     //In this function you will loop though the passed in array. Prior to that you need to check the second parameter to determine what you will be returning.
     //If the second parameter is 'string' return a sentence created using the strings in the array. If the second parameter is 'number' you will return the total of the number in the array.
     //You may notice you did this work already in previous functions but need to combine them in some way. Ideally, you should call the previous two functions in your implementation instead of copy/pasting the 'guts'.
-    _.ifElseFor = function(a,b){
+    _.ifElseFor = function(a,b) {
       //Code Goes Below
+      switch (b) {
+        case 'number':
+          return _.forIfElseNum(a)
+          break;
+        case 'string':
+          return _.forIfElseStr(a)
+          break;
+        default:
+          return 'idk'
+      }
+      }
 
-    }
+
+
 
     //PART III
     //-------------------------------------------------------------------------
@@ -204,12 +260,32 @@ _.falsyOrTruthy = function(a){
     _.objectCreationBracket = (a,b,c) =>{
       //Code Goes Below
 
+         // let obj = {
+      //   firstName: a,
+      //   lastName: b,
+      //   zord: c,
+      // }
+      // or
+           let obj = {}
+      obj['firstName'] = a
+      obj['lastName'] = b
+      obj['zord'] = c
+
+      return obj
     }
 
     //Below you will be building a function that creates an object using dot notation (.). Within the function create and return an object.
 
     _.objectCreationDot = (a,b,c) =>{
       //Code Goes Below
+
+      let obj = {}
+
+      obj.firstName = a
+      obj.lastName = b
+      obj.zord = c
+
+      return obj;
 
     }
 
